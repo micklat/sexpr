@@ -78,7 +78,7 @@ def breakAt(m,st):
 def parseItem(st):
     ret = []
     while True:
-        s = dropTill(lambda x: not x in " \n"  or x in "()",st)
+        s = dropTill(lambda x: not x in " \r\n"  or x in "()",st)
         if not s: break
         n = s[0]
 
@@ -115,7 +115,7 @@ def parseItem(st):
 def parse(st):
     ret = []
     while True:
-        step = dropWhile(lambda x: x in " \n",st)
+        step = dropWhile(lambda x: x in " \n\r",st)
         if step:
             if step[0:2] == ";;":
                 if "\n" in step:
